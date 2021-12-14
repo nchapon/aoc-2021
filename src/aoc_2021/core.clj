@@ -1,6 +1,6 @@
 (ns aoc-2021.core 
   (:require
-    [aoc-2021.day2 :refer [run]]))
+    [aoc-2021.day2 :refer [day2-part1]]))
 
 
 (defn read-puzzle
@@ -9,11 +9,11 @@
   (slurp f))
 
 (defn run-day2 []
-  (run (read-puzzle "resources/day2/input.txt")))
+  (day2-part1 (read-puzzle "resources/day2/input.txt")))
 
 
 (comment
-  (run-day2))
+  (run-day2)) 
 
 
 

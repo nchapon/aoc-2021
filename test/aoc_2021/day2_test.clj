@@ -1,22 +1,33 @@
 (ns aoc-2021.day2-test 
   (:require
-   [aoc-2021.day2 :refer [move run]]
+   [aoc-2021.core :refer [read-puzzle]]
+   [aoc-2021.day2 :refer [day2-part1 move]]
    [clojure.test :refer [deftest is testing]]))
+
+(def position {:horizontal 0
+               :depth 0
+               :aim 0})
 
 (deftest test-move-forward
   (testing "Move Forward should increment"
-    (is (= (move [0 0] [:forward 5]) [5 0]))))
-
+    (is (= (move position [:forward 5])
+           {:horizontal 5
+            :depth 0
+            :aim 0}))))
 
 (deftest test-move-up
   (testing "Move Up should decrease y value"
-    (is (= (move [0 0] [:up 4]) [0 -4]))))
-
+    (is (= (move position [:up 4])
+           {:horizontal 0
+            :depth -4
+            :aim 0}))))
 
 (deftest test-move-down
   (testing "Move down should increase y value"
-    (is (= (move [0 0] [:down 2]) [0 2]))))
-
+    (is (= (move position [:down 2])
+           {:horizontal 0
+            :depth 2
+            :aim 0}))))
 
 (def instructions
 "forward 5
@@ -26,9 +37,19 @@ up 3
 down 8
 forward 2")
 
-(deftest test-run-instructions
+(deftest test-run-instructions-part1
   (testing "Run a sample of the course"
-    (is (= (run instructions) 150))))
+    (is (= (day2-part1 instructions) 150))))
+
+
+(deftest test-run-puzzle-part1
+  (testing "Run a sample of the course"
+    (is (= (day2-part1 (read-puzzle "resources/day2/input.txt")) 1989265))))
+
+
+
+
+
 
 
 
