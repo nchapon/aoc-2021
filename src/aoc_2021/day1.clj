@@ -1,6 +1,6 @@
 (ns aoc-2021.day1 
   (:require
-    [clojure.string :as string]))
+    [aoc-2021.core :refer [read-puzzle]]))
 
 (defn depth-increase?
   "Returns true if second is greater than first."
@@ -22,14 +22,11 @@
   [s]
   (Integer/parseInt s))
 
-(defn day1-part1
+(defn part-1
   [depths]
   (->> depths
-       (string/split-lines)
        (map str->int)
        (count-increase)))
-
-
 
 
 (defn get-depths-windowed
@@ -46,14 +43,18 @@
   [depths]
   (count-increase (get-depths-windowed depths)))
 
-(defn day1-part2
+(defn part-2
   [depths]
   (->> depths
-       (string/split-lines)
        (map str->int)
        (count-increase-windowed)))
 
 
+(defn day-1 []
+  (println "Running Day 1")
+  (let [input (read-puzzle "resources/day1/input.txt")]
+    (println "Part 1 : " (part-1 input))
+    (println "Part 2 : " (part-2 input))))
 
 
 

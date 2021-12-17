@@ -3,7 +3,6 @@
    [aoc-2021.day1 :refer [count-increase count-increase-windowed]]
    [clojure.test :refer [deftest is testing]]))
 
-
 (def depths [199
             200
             208

@@ -1,6 +1,7 @@
 (ns aoc-2021.day2 
   (:require
-    [clojure.string :as string]))
+   [clojure.string :as string]
+   [aoc-2021.core :refer [read-puzzle]]))
 
 (def position {:horizontal 0
                :depth 0})
@@ -8,8 +9,6 @@
 (def position-with-aim {:horizontal 0
                         :depth 0
                         :aim 0})
-
-
 
 (defmulti move
   (fn [_ instruction] (first instruction)))
@@ -53,21 +52,26 @@
   (* (:horizontal p)
      (:depth p)))
 
-(defn day2-part1
+(defn part-1
   [instructions]
 (->> instructions
-     string/split-lines
      (map parse-instruction)
      (reduce move position)
      (multiply)))
 
-(defn day2-part2
+(defn part-2
   [instructions]
 (->> instructions
-     string/split-lines
      (map parse-instruction)
      (reduce move position-with-aim)
      (multiply)))
+
+
+(defn day2 []
+  (println "Running Day 2")
+  (let [input (read-puzzle "resources/day2/input.txt")]
+    (println "Part 1 : " (part-1 input))
+    (println "Part 2 : " (part-2 input))))
 
 
 
