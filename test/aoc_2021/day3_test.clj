@@ -1,7 +1,7 @@
 (ns aoc-2021.day3-test 
   (:require
-    [clojure.test :refer [is deftest testing]]
-    [aoc-2021.day3 :refer [part-1 part-2 get-bit-frequencies]]))
+   [aoc-2021.day3 :refer [part-1 part-2]]
+   [clojure.test :refer [deftest is testing]]))
 
 (def input [
               "00100"
@@ -25,7 +25,7 @@
 
 (deftest test-part-2
   (testing "Testing part 2"
-    (is (= (part-2 input) 23))))
+    (is (= (part-2 input) 230))))
 
 
 
